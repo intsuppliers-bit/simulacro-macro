@@ -182,11 +182,19 @@ body { background: var(--paper); color: var(--ink); font-family: 'Source Serif 4
   <h1 class="home-title">Simulacro de Parcial</h1>
   <p class="home-sub">10 preguntas aleatorias del banco. Justificación detallada al final. Cronometrado.</p>
   <div class="stat-row">
-    <div class="stat"><div class="stat-n">93</div><div class="stat-l">Preguntas en el banco</div></div>
+    <div class="stat"><div class="stat-n">115</div><div class="stat-l">Preguntas en el banco</div></div>
     <div class="stat"><div class="stat-n">10</div><div class="stat-l">Por simulacro</div></div>
     <div class="stat"><div class="stat-n">20'</div><div class="stat-l">Tiempo límite</div></div>
   </div>
   <div class="topics-grid">
+    <span class="topic-pill">Medición · Índices de Precios</span>
+    <span class="topic-pill">Consecuencias · Impuesto Inflacionario</span>
+    <span class="topic-pill">EPD · Diamand</span>
+    <span class="topic-pill">Díaz Alejandro</span>
+    <span class="topic-pill">Stop &amp; Go</span>
+    <span class="topic-pill">Monetarismo · TCD</span>
+    <span class="topic-pill">Mecanismos Propagadores</span>
+    <span class="topic-pill">Centro-Periferia · TI</span>
     <span class="topic-pill">WS-PS</span>
     <span class="topic-pill">OA-DA</span>
     <span class="topic-pill">Curva de Phillips</span>
@@ -1226,6 +1234,215 @@ const BANK = [
   ],
   correct: 1,
   explanation: "↑G → DA se desplaza a la derecha (↑Y, ↑P en la DA). ↑μ → OA_CP se desplaza hacia la izquierda/arriba (↓Y, ↑P en la OA). Efecto sobre Y: la DA empuja hacia arriba y la OA empuja hacia abajo → resultado ambiguo en Y (depende de magnitudes relativas). Efecto sobre P: AMBOS shocks elevan P → P sube con certeza. Este es el escenario de 'estanflación de política': se puede tener ↑P sin ↑Y (o incluso con ↓Y) si el shock de oferta es suficientemente grande."
+}
+
+,
+
+// ── ESTRUCTURA PRODUCTIVA DESEQUILIBRADA (EPD) ──
+{
+  topic: "EPD · Diamand",
+  text: "Según Diamand, la Estructura Productiva Desequilibrada (EPD) de Argentina se caracteriza por la coexistencia de un Sector A agropecuario (exportador con precios internacionales y oferta rígida) y un Sector B industrial (importador de insumos, con costos más altos que los internacionales). Esta configuración implica que, a medida que el ingreso crece, las importaciones crecen más que las exportaciones.",
+  type: "VF",
+  options: ["Verdadero", "Falso"],
+  correct: 0,
+  explanation: "VERDADERO. Esta es la premisa central de la EPD. El Sector B necesita insumos y bienes de capital importados para producir, por lo que al crecer el ingreso (Y↑) crecen las importaciones industriales. El Sector A tiene oferta rígida (tierra limitada, ciclos biológicos largos) y no puede expandir exportaciones rápidamente. El resultado es el conflicto crecimiento vs. escasez de divisas: Braun y Joy lo formulan como 'el valor de las importaciones excede al de las exportaciones a medida que nos aproximamos al pleno empleo'."
+},
+{
+  topic: "EPD · Diamand",
+  text: "En el modelo de Estructura Productiva Desequilibrada, el financiamiento externo (deuda externa o IED) resuelve en forma permanente la restricción externa porque provee las divisas necesarias para sostener el crecimiento.",
+  type: "VF",
+  options: ["Verdadero", "Falso"],
+  correct: 1,
+  explanation: "FALSO. El financiamiento externo solo traslada el problema hacia adelante: las divisas que ingresan deben luego destinarse a pagar deuda, intereses, utilidades y dividendos, lo que deteriora la cuenta corriente en el futuro. La restricción externa no se elimina sino que se agrava, ya que ahora hay que generar divisas para importar Y para servir la deuda. La experiencia argentina de fines de los '50/'60 (IED) y de los '80/'90 (masivo endeudamiento) confirman esta dinámica."
+},
+{
+  topic: "EPD · Diamand",
+  text: "Según la teoría de la EPD, si la economía crece y se agotan las divisas, una devaluación logra expandir rápidamente las exportaciones del Sector A porque los mayores precios en pesos incentivan una mayor producción agropecuaria.",
+  type: "VF",
+  options: ["Verdadero", "Falso"],
+  correct: 1,
+  explanation: "FALSO. La oferta del Sector A es rígida en el corto plazo: la tierra disponible está limitada, los ciclos biológicos son largos y hay poco margen para incrementar rápidamente la producción. La devaluación sube el precio en pesos de los bienes agropecuarios (P_A = P* · E) pero no genera más producción ni más exportaciones en el CP. Lo que genera es una transferencia de ingresos hacia el Sector A (a expensas de los salarios reales) sin la contrapartida de más divisas."
+},
+{
+  topic: "EPD · Díaz Alejandro",
+  text: "[Examen integrador] En una economía con EPD, una devaluación transfiere ingresos del Sector B (asalariados industriales, con mayor propensión a consumir, c_B) al Sector A (exportadores agropecuarios, con mayor propensión a ahorrar, c_A < c_B). ¿Cuál es el efecto neto esperado sobre la Demanda Agregada?",
+  type: "MC",
+  options: [
+    "DA aumenta con certeza porque la devaluación siempre mejora la balanza comercial (Marshall-Lerner)",
+    "DA disminuye con certeza porque el Sector A siempre ahorra todo el ingreso transferido",
+    "El efecto sobre DA es indeterminado: depende de la magnitud de la redistribución y de si el efecto competitividad (↑XN) supera al efecto redistributivo (↓C); puede ser contractiva",
+    "DA no cambia porque la transferencia entre sectores es un juego de suma cero dentro de la economía"
+  ],
+  correct: 2,
+  explanation: "Díaz Alejandro (1963): DA = C + I + G + XN. La devaluación genera dos efectos contrapuestos: (1) efecto competitividad: ↑TCR → ↑XN (si Marshall-Lerner cumple) → expansivo; (2) efecto redistributivo: ingreso pasa de c_B (alto) a c_A (bajo) → ↓C agregado → contractivo. Si el efecto ingreso (redistribución) domina sobre el efecto sustitución (competitividad), la DA cae y la devaluación es contractiva. Esto es especialmente probable cuando las elasticidades son bajas (como en Argentina) y la redistribución es grande."
+},
+{
+  topic: "EPD · Díaz Alejandro",
+  text: "La 'inflación cambiaria' en el sentido de Diamand se refiere a la inflación causada por el exceso de emisión monetaria que el Banco Central realiza durante los episodios de devaluación.",
+  type: "VF",
+  options: ["Verdadero", "Falso"],
+  correct: 1,
+  explanation: "FALSO. La 'inflación cambiaria' de Diamand no es inflación monetaria. Es el mecanismo por el cual la restricción externa SE EXPRESA sobre el nivel de precios: cuando la economía crece y se agotan las divisas, la devaluación necesaria para reequilibrar el sector externo genera un salto en el precio de los bienes agropecuarios (P_A = P* · E sube) que luego se propaga al resto de los precios vía costos y puja distributiva. Es la forma en que la EPD se manifiesta en inflación: no viene de la emisión sino de la estructura productiva y sus desequilibrios."
+},
+{
+  topic: "EPD · Stop and Go",
+  text: "En el modelo stop-and-go de Braun y Joy (1968), el equilibrio externo se logra principalmente a través del efecto sustitución de la devaluación (exportaciones suben, importaciones bajan por precios relativos), sin necesidad de una caída del ingreso.",
+  type: "VF",
+  options: ["Verdadero", "Falso"],
+  correct: 1,
+  explanation: "FALSO. Braun y Joy sostienen exactamente lo contrario: dado que las elasticidades son bajas (EPD), el efecto sustitución es limitado. El equilibrio externo se alcanza principalmente vía efecto ingreso: la devaluación contrae la DA (efecto redistributivo de Díaz Alejandro) + políticas contractivas (FMI) → ↓Y → ↓importaciones → equilibrio de BP. El ajuste no es por precios relativos sino por caída del nivel de actividad. Por eso el modelo se llama 'stop-and-go': la fase 'stop' implica recesión, no solo corrección de precios."
+},
+
+// ── TEORÍA MONETARISTA DE LA INFLACIÓN ──
+{
+  topic: "Monetarismo · Inflación",
+  text: "La teoría cuantitativa del dinero (M · V = P · Y) implica que, bajo los supuestos monetaristas (V estable, economía en pleno empleo), un aumento del 10% en la oferta monetaria genera en el mediano plazo un aumento del 10% en el nivel de precios, sin efectos sobre el producto real.",
+  type: "VF",
+  options: ["Verdadero", "Falso"],
+  correct: 0,
+  explanation: "VERDADERO. Con V constante y Y fijo en pleno empleo: M · V = P · Y → ΔM/M = ΔP/P. Un aumento de M se traslada 1 a 1 a P en el mediano plazo (neutralidad del dinero). En el CP puede haber efectos reales si la inflación no fue anticipada ('sorpresa inflacionaria'), pero en el MP los agentes corrigen sus expectativas y Y vuelve a su nivel natural."
+},
+{
+  topic: "Monetarismo · Inflación",
+  text: "Según la teoría monetarista de la inflación, una política de restricción monetaria no genera costos en términos de desempleo ni recesión, porque los agentes ajustan instantáneamente sus expectativas a la nueva tasa de inflación.",
+  type: "VF",
+  options: ["Verdadero", "Falso"],
+  correct: 1,
+  explanation: "FALSO (al menos en la versión con expectativas adaptativas). En el monetarismo con expectativas adaptativas, la desinflación sí tiene costos reales en el CP: ↓M → DA cae → Y < Y_E → ↑u, hasta que las expectativas se ajustan gradualmente. En la versión con expectativas racionales (Lucas, Sargent) la desinflación anunciada y creíble podría ser sin costos. Pero incluso Friedman admite costos transitorios. La afirmación de 'sin costos instantáneos' solo es válida bajo RE estrictas y credibilidad perfecta."
+},
+{
+  topic: "Monetarismo · Inflación",
+  text: "Para los monetaristas, la inflación persistente es causada por un crecimiento continuo de la oferta monetaria por encima del crecimiento del producto real, motivado típicamente por la monetización del déficit fiscal.",
+  type: "VF",
+  options: ["Verdadero", "Falso"],
+  correct: 0,
+  explanation: "VERDADERO. Friedman: 'La inflación es siempre y en todo lugar un fenómeno monetario.' La expansión monetaria sostenida por encima del crecimiento real de Y (con V constante) genera inflación continua. Los dos motivos principales son: (a) intentar mantener u < u_N de forma permanente, lo que requiere inflación siempre creciente; (b) monetización del déficit fiscal (el BC 'imprime' para financiar al gobierno). La solución: regla fija de crecimiento de M igual al crecimiento real de Y."
+},
+{
+  topic: "Monetarismo · Inflación",
+  text: "Según la Teoría Cuantitativa del Dinero, si la velocidad de circulación (V) es constante y el gobierno no emite dinero nuevo, una inflación del 50% generará una caída del producto real (Y).",
+  type: "VF",
+  options: ["Verdadero", "Falso"],
+  correct: 0,
+  explanation: "VERDADERO. De M · V = P · Y: si V constante y M constante (no emisión) → P · Y = constante. Si ↑P → ↓Y. La inflación, si no está acompañada de mayor emisión, implica una caída del producto real porque los saldos monetarios reales caen (↓M/P) → ↓I y ↓C → ↓Y. Esto es lo que la Clase 20 (parcial 1er C 2024) señala: la recomendación heterodoxa ante esta situación no es la restricción monetaria sino atacar los cuellos de botella productivos para expandir Y sin necesidad de emitir."
+},
+{
+  topic: "Monetarismo · Inflación",
+  text: "Los monetaristas consideran que los 'cuellos de botella' sectoriales (como la rigidez de la oferta agropecuaria) son una CAUSA de la inflación persistente, independientemente de la política monetaria.",
+  type: "VF",
+  options: ["Verdadero", "Falso"],
+  correct: 1,
+  explanation: "FALSO. Para los monetaristas, los cuellos de botella son una CONSECUENCIA de la inflación monetaria, no su causa. La inflación persistente desvía el ahorro hacia inversiones especulativas (protección contra la desvalorización del dinero) y reduce la inversión productiva, generando los desajustes sectoriales. Los estructuralistas invierten esta causalidad: los desajustes generan la inflación y la expansión monetaria los acompaña endógenamente."
+},
+
+// ── MECANISMOS PROPAGADORES DE LA INFLACIÓN ESTRUCTURAL ──
+{
+  topic: "Mecanismos Propagadores",
+  text: "Según la visión estructuralista (Olivera, 1964), en una economía con rigideces nominales, un shock que requiere un cambio en los precios RELATIVOS (ej: el Sector A debe encarecerse en términos del Sector B) puede terminar generando un aumento del NIVEL GENERAL de precios, aunque el cambio relativo requerido sea neutral en términos distributivos.",
+  type: "VF",
+  options: ["Verdadero", "Falso"],
+  correct: 0,
+  explanation: "VERDADERO. Este es el núcleo del argumento de Olivera: si los precios son rígidos a la baja, el ajuste de precios relativos no puede hacerse bajando los precios de los sectores que 'deben' bajar. Solo pueden subir los que deben subir → el nivel general sube aunque el cambio relativo requerido no implique 'más inflación' en sentido fundamental. La economía poco flexible asimila variaciones de precios relativos como inflación del nivel general."
+},
+{
+  topic: "Mecanismos Propagadores",
+  text: "En el esquema de mecanismos propagadores de la inflación estructural, ¿cuál de las siguientes opciones describe correctamente la secuencia que amplifica un shock inicial de precios relativos?",
+  type: "MC",
+  options: [
+    "Shock de precios relativos → BC emite para acomodar → inflación monetaria → ajuste de precios relativos sin inflación estructural",
+    "Shock de precios relativos → rigidez a la baja de precios industriales + poder sindical → los precios que 'deben' bajar no bajan → solo suben los que deben subir → nivel general de precios sube → puja distributiva (W vs. P) → espiral inflacionaria",
+    "Shock de precios relativos → ajuste instantáneo de todos los precios → nuevo equilibrio sin inflación persistente porque los mercados vacían rápidamente",
+    "Shock de precios relativos → deflación del sector que debería bajar → nivel general estable → sin inflación"
+  ],
+  correct: 1,
+  explanation: "La secuencia estructuralista (Clase 20): shock de precios relativos (ej. devaluación → ↑P_A) → (1) los precios industriales no bajan (rigidez nominal + mark-up); (2) los sindicatos resisten caída del salario real → ↑W nominal para compensar el ↑costo de vida; (3) las empresas trasladan ↑W a ↑P_B para recuperar el mark-up; (4) puja distributiva: espiral W-P. Resultado: lo que debería ser un cambio de precio relativo se convierte en inflación generalizada. La política monetaria laxa valida este proceso (pero es consecuencia, no causa)."
+},
+{
+  topic: "Mecanismos Propagadores",
+  text: "En la visión estructuralista del proceso inflacionario, la expansión de la oferta monetaria que acompaña la inflación es un factor autónomo e independiente que actúa como disparador del proceso, al igual que en el monetarismo.",
+  type: "VF",
+  options: ["Verdadero", "Falso"],
+  correct: 1,
+  explanation: "FALSO. En el enfoque estructuralista, la expansión monetaria es endógena: la inflación estructural (generada por los desajustes sectoriales y la puja distributiva) provoca mayor demanda de crédito y liquidez, que el BC 'valida' expandiendo M para evitar una crisis de liquidez y recesión. La dirección de causalidad es opuesta al monetarismo: estructura → inflación → expansión monetaria. Esta distinción es central para el debate (Olivera 1964): los hechos que los monetaristas señalan como CAUSA son para los estructuralistas un EFECTO."
+},
+{
+  topic: "Mecanismos Propagadores",
+  text: "En el modelo de dos sectores de la visión estructuralista (Clase 20), cuando el Sector A experimenta un shock positivo de precios (↑P_A = ↑P* · E), los salarios del Sector B tienden a seguir la misma trayectoria ascendente aunque B no experimentó ninguna mejora de productividad. Esto genera inflación de costos en B.",
+  type: "VF",
+  options: ["Verdadero", "Falso"],
+  correct: 0,
+  explanation: "VERDADERO. La lógica: ↑P_A → ↑costo de vida (alimentos más caros) → los trabajadores del Sector B exigen ↑W_B para mantener su salario real → ↑costos de producción en B → las empresas de B aplican mark-up sobre costos: P_B = (1+μ) · W_B → ↑P_B. El shock del Sector A se 'traslada' a B vía la solidaridad salarial y el mecanismo de formación de precios con mark-up. Resultado: inflación en B aunque B no tuvo ningún shock de demanda ni de productividad. Este es el corazón del mecanismo propagador."
+},
+
+// ── CENTRO-PERIFERIA / TÉRMINOS DEL INTERCAMBIO ──
+{
+  topic: "Centro-Periferia · TI",
+  text: "Según Prebisch y la CEPAL, los países periféricos (exportadores de bienes primarios) tienden a deteriorar sus Términos del Intercambio (TI = P_X / P_M) en el largo plazo, porque la elasticidad ingreso de la demanda de manufacturas es mayor que la de los bienes primarios.",
+  type: "VF",
+  options: ["Verdadero", "Falso"],
+  correct: 0,
+  explanation: "VERDADERO. Prebisch: a medida que el ingreso mundial crece, la demanda de manufacturas (del centro) crece más que la demanda de bienes primarios (de la periferia). Además, el progreso técnico en el centro es apropiado por trabajadores y empresarios vía mayores salarios/ganancias; en la periferia, la competencia en commodities traslada las ganancias de productividad a los compradores vía menores precios. Resultado: TI de la periferia tienden a deteriorarse, reduciendo la 'capacidad de importar' y limitando el crecimiento."
+},
+{
+  topic: "Centro-Periferia · TI",
+  text: "La tesis de Prebisch sobre el deterioro secular de los Términos del Intercambio para la periferia fue comprobada empíricamente de forma concluyente y sin excepciones desde 1950 hasta la actualidad.",
+  type: "VF",
+  options: ["Verdadero", "Falso"],
+  correct: 1,
+  explanation: "FALSO. La tesis no se comprobó linealmente hasta la actualidad. Los datos muestran: (1) alta volatilidad e imprevisibilidad de los TI, con predominio del deterioro en períodos largos pero con reversiones importantes (ej. el boom de commodities de los 2000s, con TI de Argentina 36% por encima del promedio histórico 1950-2011); (2) la reversión de los TI en los años 2000 fue la condición fundamental para el crecimiento alto y prolongado de América Latina en esa década. La tesis captura una tendencia real pero no una ley sin excepciones."
+}
+
+,
+
+// ── STOP AND GO — CICLO COMPLETO ──
+{
+  topic: "EPD · Stop and Go",
+  text: "En el modelo stop-and-go, luego de la devaluación y la fase 'stop' (recesión), ¿qué mecanismo explica el inicio de una nueva fase 'go' (expansión)?",
+  type: "MC",
+  options: [
+    "El BC expande la oferta monetaria discrecionalmente para estimular la economía",
+    "La inflación cambiaria y los aumentos salariales nominales aprecian el TCR real → mejora distributiva → ↑salario real → ↑consumo → ↑DA → nueva fase expansiva",
+    "Las exportaciones del Sector A crecen gracias a la devaluación previa, generando divisas que financian la expansión",
+    "El FMI otorga crédito que permite financiar la nueva fase de crecimiento"
+  ],
+  correct: 1,
+  explanation: "El mecanismo de reinicio del ciclo: tras la devaluación, la inflación cambiaria sube los precios pero los salarios nominales también suben (puja distributiva). Con el tiempo, la inflación de salarios supera a la cambiaria → apreciación real del TCR → el salario real se recupera → mejora distributiva → ↑poder adquisitivo de los asalariados → ↑consumo → ↑DA → nueva fase 'go'. El ciclo se repite porque ninguno de los problemas estructurales de la EPD fue resuelto: la industria sigue siendo importadora neta y el agro sigue con oferta rígida."
+},
+
+// ── ÍNDICES DE PRECIOS ──
+{
+  topic: "Medición de la Inflación",
+  text: "El Índice de Laspeyres (IPC) sobreestima la inflación respecto al Índice de Paasche porque usa una canasta fija del período base, otorgando demasiado peso a los bienes que se encarecen sin captar la sustitución que realizan los consumidores ante cambios de precios relativos.",
+  type: "VF",
+  options: ["Verdadero", "Falso"],
+  correct: 0,
+  explanation: "VERDADERO. El índice Laspeyres pondera con las cantidades del período base (q⁰): si un bien sube mucho de precio, los consumidores lo sustituyen por otro más barato, pero el IL sigue 'comprando' la misma cantidad del bien caro. Por eso sobreestima el costo de vida real. El índice Paasche, en cambio, usa las cantidades del período corriente (qᵗ), captando la sustitución, pero subestima la inflación porque asume que los consumidores ya adaptaron su canasta."
+},
+{
+  topic: "Medición de la Inflación",
+  text: "El Deflactor del PBI (Índice de Precios Implícitos) es un índice de tipo Paasche porque compara el valor del PBI a precios corrientes con el valor del mismo PBI a precios constantes, usando las cantidades del período corriente como ponderadores.",
+  type: "VF",
+  options: ["Verdadero", "Falso"],
+  correct: 0,
+  explanation: "VERDADERO. IPI = PBI a precios corrientes / PBI a precios constantes = Σ(pᵗ·qᵗ) / Σ(p⁰·qᵗ). Al usar qᵗ (las cantidades producidas en el período t) tanto en el numerador como en el denominador, es exactamente la fórmula del índice Paasche. Por eso el IPI subestima la inflación (misma limitación que el Paasche) y difiere del IPC, que es un Laspeyres de canasta fija."
+},
+
+// ── CONSECUENCIAS DE LA INFLACIÓN ──
+{
+  topic: "Consecuencias · Inflación",
+  text: "El 'impuesto inflacionario' es considerado el más regresivo de los impuestos porque los sectores de menores ingresos tienen mayor propensión a mantener saldos monetarios en efectivo, siendo los más perjudicados por la pérdida de valor del dinero.",
+  type: "VF",
+  options: ["Verdadero", "Falso"],
+  correct: 0,
+  explanation: "VERDADERO. Los sectores de bajos ingresos tienen mayor propensión al consumo y menor capacidad de ahorro financiero sofisticado: mantienen una proporción mayor de su riqueza en efectivo (pesos). La inflación erosiona ese saldo real, funcionando como un impuesto cuya base imponible son los saldos monetarios y cuya tasa es la tasa de inflación. Los sectores de mayores ingresos pueden dolarizarse o invertir en activos que se cubren de la inflación (propiedades, acciones, divisas), mientras los más pobres no tienen esa opción."
+},
+{
+  topic: "Consecuencias · Inflación",
+  text: "El 'Efecto Olivera' sobre las cuentas fiscales describe que, en contextos de alta inflación, el déficit fiscal tiende a reducirse automáticamente porque la recaudación impositiva se actualiza más rápido que el gasto público.",
+  type: "VF",
+  options: ["Verdadero", "Falso"],
+  correct: 1,
+  explanation: "FALSO. El Efecto Olivera opera en la dirección contraria: los contribuyentes pagan sus impuestos con un rezago respecto al momento en que se devengaron. En ese lapso, la inflación licúa el valor real de la deuda impositiva. Simultáneamente, el gasto público (salarios, contratos) se actualiza con mayor frecuencia. Resultado: la recaudación real cae mientras el gasto real se sostiene mejor → el déficit fiscal se agrava con la inflación. Este efecto crea un círculo vicioso: mayor inflación → mayor déficit real → más emisión para financiarlo → más inflación."
 }
 
 ]; // FIN BANK
